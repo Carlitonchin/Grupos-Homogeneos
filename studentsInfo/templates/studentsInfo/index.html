@@ -1,14 +1,107 @@
+{% load static %}
 
-<table id="containerStudents">
-    <tr>
+<link rel="stylesheet" type="text/css" href="{% static 'studentsInfo/index.css' %}"/>
+<h3>Agregar y quitar columnas</h3>
+<div id="addRemoveColumnsContainer">
+    <div id="addColumnsContainer">
+        <div class="itemAdd" onClick='addColumn(this)'>
+            <div class="buttonAdd">+</div>
+            <p>${Columna}</p>
+        </div>
+    </div>
+
+    <div id="removeColumnsContainer">
+   
+        <div class="itemRemove" onClick='removeColumn(this)'>
+            <div class="buttonRemove">-</div>
+            <p>${Columna}</p>
+        </div>    
+   
+</div>
+
+<h3>Filtros</h3>
+<div id="filtersContainer"></div>
+
+
+<table id="tableStudents">
+    <tr class = "tr">
         <th class="th">CI</th>
         <th class="th">Nombre</th>
+        <th class="th">Apellidos</th>
+        <th class="th">Pais</th>
+        <th class="th">Provincia</th>
+        <th class="th">Municipio</th>
+        <th class="th">Situacion Academica</th>
+        <th class="th">Estado</th>
+        <th class="th">Direccion</th>
+        <th class="th">Fecha de Nacimiento</th>
+        <th class="th">Carrera</th>
+        <th class="th">Facultad</th>
+        <th class="th">Tipo de Curso</th>
+        <th class="th">Correo electronico</th>
+        <th class="th">Fuente de ingreso</th>
+        <th class="th">Origen Academico</th>
+        <th class="th">Regimen de Estudio</th>
+        <th class="th">Natural de</th>
+        <th class="th">Teléfono</th>
+        <th class="th">Fecha de Ingreso a la ES</th>
+        <th class="th">Estado Civil</th>
+        <th class="th">Organización política</th>
+        <th class="th">Fecha de ingreso al Ces</th>
+        <th class="th">Fecha de matrícula</th>
+        <th class="th">Sexo</th>
+        <th class="th">Color de la piel</th>
+        <th class="th">Tipo de estudiante</th>
+        <th class="th">Año de Estudio</th>
+        <th class="th">Centro de Trabajo</th>
+        <th class="th">Nombre del Padre</th>
+        <th class="th">Nivel Academico del Padre</th>
+        <th class="th">Nombre de la Madre</th>
+        <th class="th">Nivel academico de la madre</th>
+        <th class="th">Tipo de servicio militar</th>
+        <th class="th">Edad</th>
     </tr>
 {% for s in students %}
-<tr>
+<tr class="tr">
     <td class="td">{{s.ci}}</td>
     <td class="td">{{s.nombre}}</td>
+    <td class="td">{{s.apellidos}}</td>
+    <td class="td">{% firstof s.pais 'desconocido' %}</td>
+    <td class="td">{% firstof s.provincia 'desconocido' %}</td>
+    <td class="td">{% firstof s.municipio 'desconocido' %}</td>
+    <td class="td">{% firstof s.situacion_academica 'desconocido' %}</td>
+    <td class="td">{% firstof s.estado 'desconocido' %}</td>
+    <td class="td">{% firstof s.direccion 'desconocido' %}</td>
+    <td class="td">{% firstof s.fecha_nacimiento 'desconocido' %}</td>
+    <td class="td">{% firstof s.carrera 'desconocido' %}</td>
+    <td class="td">{% firstof s.facultad 'desconocido' %}</td>
+    <td class="td">{% firstof s.tipo_curso 'desconocido' %}</td>
+    <td class="td">{% firstof s.correo 'desconocido' %}</td>
+    <td class="td">{% firstof s.fuente_ingreso 'desconocido' %}</td>
+    <td class="td">{% firstof s.origen_academico 'desconocido' %}</td>
+    <td class="td">{% firstof s.regimen_estudio 'desconocido' %}</td>
+    <td class="td">{% firstof s.natural_de 'desconocido' %}</td>
+    <td class="td">{% firstof s.telefono 'desconocido' %}</td>
+    <td class="td">{% firstof s.fecha_ingreso 'desconocido' %}</td>
+    <td class="td">{% firstof s.estado_civil 'desconocido' %}</td>
+    <td class="td">{% firstof s.organizacion_politica 'desconocido' %}</td>
+    <td class="td">{% firstof s.fecha_ingreso_ces 'desconocido' %}</td>
+    <td class="td">{% firstof s.fecha_matricula 'desconocido' %}</td>
+    <td class="td">{% firstof s.sexo 'desconocido' %}</td>
+    <td class="td">{% firstof s.color_piel 'desconocido' %}</td>
+    <td class="td">{% firstof s.tipo_estudiante 'desconocido' %}</td>
+    <td class="td">{% firstof s.anho_estudio 'desconocido' %}</td>
+    <td class="td">{% firstof s.centro_trabajo 'desconocido' %}</td>
+    <td class="td">{% firstof s.nombre_padre 'desconocido' %}</td>
+    <td class="td">{% firstof s.nivel_academico_padre 'desconocido' %}</td>
+    <td class="td">{% firstof s.nombre_madre 'desconocido' %}</td>
+    <td class="td">{% firstof s.nivel_academico_madre 'desconocido' %}</td>
+    <td class="td">{% firstof s.tipo_servicio_militar 'desconocido' %}</td>
+    <td class="td">{% firstof s.edad 'desconocido' %}</td>
+    
 </tr>
     
 {% endfor %}
 </table>
+<script src={% static 'studentsInfo/index.js' %}></script>
+
