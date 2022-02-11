@@ -1,0 +1,14 @@
+
+<table id="containerStudents">
+    <tr>
+        <th class="th">CI</th>
+        <th class="th">Nombre</th>
+    </tr>
+{% for s in students %}
+<tr>
+    <td class="td">{{s.ci}}</td>
+    <td class="td">{{s.nombre}}</td>
+</tr>
+    
+{% endfor %}
+</table>
